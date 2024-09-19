@@ -1,5 +1,6 @@
 const Category = require("../model/categoryModel");
 const fs = require("fs");
+const path = require('path');
 
 const categoryController = {
   //Create A new category
@@ -42,10 +43,9 @@ const categoryController = {
       }
 
       if (req.file) {
-        if (category.category_image) {
+        if (category.category_image && fs.existsSync(category.category_image)) {
           fs.unlinkSync(category.category_image);
         }
-
         category.category_image = req.file.path;
       }
 
@@ -58,8 +58,6 @@ const categoryController = {
       res.status(500).json({ message: "Internal server error" });
     }
   },
-
-  //Delete a category
 
   deleteCategory: async (req, res) => {
     try {
