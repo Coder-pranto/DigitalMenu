@@ -192,6 +192,7 @@ const orderController = {
         totalPrice,
         totalNumberOfFood,
         restaurantId,
+        status:'approved',
         paymentMethod: 'offline', 
         paymentStatus: 'approved', 
       });
