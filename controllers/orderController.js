@@ -193,7 +193,7 @@ const orderController = {
         totalNumberOfFood,
         restaurantId,
         paymentMethod: 'offline', 
-        paymentStatus: 'pending', 
+        paymentStatus: 'approved', 
       });
   
       await newOrder.save();
