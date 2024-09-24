@@ -291,6 +291,7 @@ const loginController = async (req, res, next) => {
         const restaurantAdminSendableInfo = {
             restaurantId: user.restaurantId,
             restaurantName: user.restaurantName,
+            restaurantLogo: user.logo,
             token,
         }
         res.status(200).json({status: "success",message: 'Login successfull',data: restaurantAdminSendableInfo})
