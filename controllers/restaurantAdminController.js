@@ -41,14 +41,23 @@ const getAllRestaurantAdminController = async (req, res, next) => {
             next(new CustomError('Couldn\'t found any restaurant admins', 404));
             return;
         }
+
         // Convert each Mongoose document to a plain JavaScript object
         const restaurantAdminsWithoutPass = restaurantAdmins.result.map(admin => {
-            let { password: pwd, ...adminWithoutPass } = admin.toObject();
-            adminWithoutPass = {
-                ...adminWithoutPass,
+            /* if admin don't want to display the password */
+            // let { password: pwd, ...adminWithoutPass } = admin.toObject();
+            // adminWithoutPass = {
+            //     ...adminWithoutPass,
+            //     totalPage: restaurantAdmins.totalPage
+            // };
+            // return adminWithoutPass;
+            /* if admin don't want to display the password */
+            let admins = admin.toObject();
+            admins = {
+                ...admins,
                 totalPage: restaurantAdmins.totalPage
             };
-            return adminWithoutPass;
+            return admins;
         });
         // send success response
         res.status(200).json({
@@ -226,7 +235,6 @@ const updateRestaurantController = async (req, res, next) => {
         next(new CustomError(error.message, 400));
     }
 }
-
 
 
 // delete a restaurant admin controller by super admin
