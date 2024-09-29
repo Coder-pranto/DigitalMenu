@@ -69,7 +69,8 @@ const corsOptions = {
     "http://localhost:3004",
     "https://digitalmenu.discounthut-bd.com",
     "https://digitalmenu-user.discounthut-bd.com",
-    "https://e-food.user.discounthut-bd.com"
+    "https://e-food.user.discounthut-bd.com",
+    "https://e-food.super.discounthut-bd.com",
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS','-DEV'], // Allow all methods
   credentials: true, // Allow cookies and credentials
